@@ -21,6 +21,6 @@ describe('notation Converter', () => {
     expect(function () { notationConverter("K6") }).toThrow(new Error("invalid input"));
   });
   it('should not accept A1-style inputs beyond 8', () => {
-    expect(function () { notationConverter("F16") }).toThrow(new Error("invalid input"));
+    expect(function () { notationConverter("F9") }).toThrow(new Error("invalid input"));
   });
 })
