@@ -23,4 +23,7 @@ describe('notation Converter', () => {
   it('should not accept A1-style inputs beyond 8', () => {
     expect(function () { notationConverter("F9") }).toThrow(new Error("invalid input"));
   });
+  it('should not accept inputs with a length greater than 2', () => {
+    expect(function () { notactionConverter("A11") }).toThrow(new Error("invalid input"));
+  });
 })
