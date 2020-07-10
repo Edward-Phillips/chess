@@ -17,4 +17,10 @@ describe('notation Converter', () => {
   it('should be able to convert as string "C1" to 16', () => {
     expect(notationConverter("C1")).toEqual(16);
   });
+  it('should not accept A1-style inputs beyond H', () => {
+    expect(function () { notationConverter("K6") }).toThrow(new Error("invalid input"));
+  });
+  it('should not accept A1-style inputs beyond 8', () => {
+    expect(function () { notationConverter("F16") }).toThrow(new Error("invalid input"));
+  });
 })
