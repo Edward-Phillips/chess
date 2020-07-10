@@ -11,7 +11,10 @@ describe('notation Converter', () => {
   it('should be able to convert a string "B1" to 8', () => {
     expect(notationConverter("B1")).toEqual(8);
   });
-  it(' should be able to convert a string "B2" to 9', () => {
+  it('should be able to convert a string "B2" to 9', () => {
     expect(notationConverter("B2")).toEqual(9);
+  });
+  it('should be able to convert as string "C1" to 16', () => {
+    expect(notationConverter("C1")).toEqual(16);
   });
 })
