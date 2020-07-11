@@ -26,4 +26,7 @@ describe('notation Converter', () => {
   it('should not accept inputs with a length greater than 2', () => {
     expect(function () { notationConverter("A11") }).toThrow(new Error("invalid input"));
   });
+  it('should not accept A0 as an input', () => {
+    expect(function() { notationConverter("A0")}).toThrow(new Error("invalid input"));
+  });
 })
