@@ -13,6 +13,12 @@ describe('cell class', () => {
     const colour = false,
     piece = "pawn",
     square = new Cell(colour, piece);
-    expect(square.contents).toEqual("pawn");
+    expect(square.contents[0]).toEqual("pawn");
+  });
+  it('can return the piece stored in the cell', () => {
+    const colour = false,
+    piece = "pawn",
+    square = new Cell(colour, piece);
+    expect(square.extractPiece()).toEqual("pawn");
   });
 })
