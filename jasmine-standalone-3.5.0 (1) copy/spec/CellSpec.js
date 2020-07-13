@@ -21,4 +21,12 @@ describe('cell class', () => {
     square = new Cell(colour, piece);
     expect(square.extractPiece()).toEqual("pawn");
   });
+  it('returning the piece removes the piece from the cell', () => {
+    const colour = false,
+    piece = "pawn",
+    square = new Cell(colour, piece);
+    square.extractPiece();
+    expect(square.contents.length).toEqual(0);
+  });
+  
 })
