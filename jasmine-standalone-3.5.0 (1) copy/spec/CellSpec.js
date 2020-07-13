@@ -41,5 +41,13 @@ describe('cell class', () => {
     square = new Cell(colour);
     expect(square.contents.length).toEqual(0);
   });
-  
+  it('adding a piece to a cell removes the original piece', () => {
+    const colour = false,
+    piece = "knight",
+    secondPiece = "pawn",
+    square = new Cell(colour, piece);
+    square.insertPiece(secondPiece);
+    expect(square.contents.length).toEqual(1);
+    expect(square.extractPiece()).toEqual(secondPiece);
+  })
 })
