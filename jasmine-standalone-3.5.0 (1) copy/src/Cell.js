@@ -6,6 +6,6 @@ class Cell {
   }
 
   extractPiece () {
-    return this.contents[0]
+    return this.contents.pop();
   }
 }
