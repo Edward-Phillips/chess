@@ -7,5 +7,9 @@ class Cell {
 
   extractPiece () {
     return this.contents.pop();
+  };
+
+  insertPiece (piece) {
+    this.contents.push(piece)
   }
 }
