@@ -4,4 +4,8 @@ class Cell {
     this.occupied = false;
     this.contents = [startingPiece];
   }
+
+  extractPiece () {
+    return this.contents[0]
+  }
 }
