@@ -12,7 +12,10 @@ class Cell {
 
   insertPiece (piece) {
     if(piece) {
+      if(this.contents.length > 0) {
+        this.contents.length = 0;
+      }
       this.contents.push(piece)
     }
-  }
+  };
 }
