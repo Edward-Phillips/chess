@@ -2,7 +2,8 @@ class Cell {
   constructor(colour, startingPiece) {
     this.colour = colour;
     this.occupied = false;
-    this.contents = [startingPiece];
+    this.contents = []
+    this.insertPiece(startingPiece);
   }
 
   extractPiece () {
@@ -10,6 +11,8 @@ class Cell {
   };
 
   insertPiece (piece) {
-    this.contents.push(piece)
+    if(piece) {
+      this.contents.push(piece)
+    }
   }
 }
