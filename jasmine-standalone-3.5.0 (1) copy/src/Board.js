@@ -1,4 +1,5 @@
 class Board {
+
   constructor() {
     this.cells = []
     this.currentTurn = 0
@@ -14,12 +15,14 @@ class Board {
       this.cells.push(element);
     }
   };
+
   turn() {
     if (this.currentTurn % 2 == 0) {
       return "White"
     }
     return "Black"
   };
+
   incTurn() {
     this.currentTurn += 1;
   };
