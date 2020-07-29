@@ -1,5 +1,6 @@
 class Piece {
-  constructor (colour) {
-    this.colour = colour
+  constructor (colour, startingPosition) {
+    this.colour = colour;
+    this.position = startingPosition;
   }
 }
