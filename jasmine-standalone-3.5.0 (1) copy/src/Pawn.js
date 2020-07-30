@@ -5,14 +5,26 @@ class Pawn extends Piece {
 
   moves () {
     const numberPosition = parseInt(this.position[1]);
-    if (numberPosition == 2) {
-      const options = [numberPosition + 1, numberPosition + 2]
-      return [this.position[0]+options[0], this.position[0] + options[1]]
-    } else if (numberPosition >= 8) {
-      return []
+    if(this.colour == "white") {
+      if (numberPosition == 2) {
+        const options = [numberPosition + 1, numberPosition + 2]
+        return [this.position[0]+options[0], this.position[0] + options[1]]
+      } else if (numberPosition >= 8) {
+        return []
+      } else {
+        const options = numberPosition + 1;
+        return [this.position[0] + options ]
+      }
     } else {
-      const options = numberPosition + 1;
-      return [this.position[0] + options ]
+      if (numberPosition == 7) {
+        const options = [numberPosition - 1, numberPosition - 2]
+        return [this.position[0]+options[0], this.position[0] + options[1]]
+      } else if (numberPosition <= 1) {
+        return []
+      } else {
+        const options = numberPosition - 1;
+        return [this.position[0] + options ]
+      }
     }
   }
 }
