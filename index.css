@@ -21,21 +21,14 @@
   min-width: 500px;
   width: 90vw;
   height: 90vw;
-  display: grid;
-  grid-template-rows: 1fr 8fr 1fr;
-  gap: 0px;
-  /* background-color: grey; */
 }
 
 .numbers_board {
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
-  max-width: 1000px;
-  max-height: 800px;
   min-height: 400px;
   min-width: 500px;
   height: auto;
-  justify-items:stretch;
 }
 
 .letters {
@@ -58,9 +51,9 @@
 
 .border_square {
   min-height: 50px;
-  min-width: 50px;
+  /*min-width: 50px;
   max-width: 100px;
-  max-height: 100px;
+  max-height: 100px; */
   width: 100%;
   height: auto;
   display: flex;
