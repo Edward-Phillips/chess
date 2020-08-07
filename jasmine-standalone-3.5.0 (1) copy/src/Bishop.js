@@ -1,8 +1,6 @@
 class Bishop extends Piece {
   constructor (colour, piece) {
     super (colour, piece);
-    this.charCodeMin = 65;
-    this.charCodeMax = 72;
   };
   moves () {
     const numberPosition = parseInt(this.position[1]);
