@@ -3,6 +3,6 @@ describe("Bishop Class", () => {
     const colour = "white";
     const startingPosition = "C1";
     const piece = new Bishop(colour, startingPosition);
-    expect(piece.moves()).toEqual(["A3","B2","D2","E3","F4","G5","H6"]);
+    expect(piece.moves().sort()).toEqual(["A3","B2","D2","E3","F4","G5","H6"].sort());
   });
 })
