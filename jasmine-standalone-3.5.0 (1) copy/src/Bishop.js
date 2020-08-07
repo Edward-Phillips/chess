@@ -1,6 +1,6 @@
 class Bishop extends Piece {
-  constructor(colour, piece) {
-    super(colour, piece);
+  constructor (colour, piece) {
+    super (colour, piece);
     this.charCodeMin = 65;
     this.charCodeMax = 72;
   };
