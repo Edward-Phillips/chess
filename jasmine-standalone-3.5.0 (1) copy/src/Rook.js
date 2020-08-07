@@ -6,12 +6,10 @@ class Rook extends Piece {
     const numberPosition = parseInt(this.position[1]);
     const charValue = this.position[0].charCodeAt(0);
     const results = [];
-    let increment = 1;
-    for (let index = this.charCodeMin; index < this.charCodeMax; index++) {
+    for (let index = this.charCodeMin; index <= this.charCodeMax; index++) {
       const character = String.fromCharCode(index);
       const number = numberPosition;
       results.push(character + number);
-      increment ++;
     }
     for (let index = 1; index < 9; index++) {
       const character = this.position[0];
