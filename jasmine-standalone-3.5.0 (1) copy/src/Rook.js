@@ -3,6 +3,21 @@ class Rook extends Piece {
     super(colour, piece);
   }
   moves() {
-    return ["A1","B1","C1","D1","E1","F1","G1","H2","H3","H4","H5","H6","H7","H8"]
+    const numberPosition = parseInt(this.position[1]);
+    const charValue = this.position[0].charCodeAt(0);
+    const results = [];
+    let increment = 1;
+    for (let index = this.charCodeMin; index < this.charCodeMax; index++) {
+      const character = String.fromCharCode(index);
+      const number = numberPosition;
+      results.push(character + number);
+      increment ++;
+    }
+    for (let index = 1; index < 9; index++) {
+      const character = this.position[0];
+      const number = index;
+      results.push(character + number);
+    }
+    return results.filter(x=> x !==this.position);
   }
 }
