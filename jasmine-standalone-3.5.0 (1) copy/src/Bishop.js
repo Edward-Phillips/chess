@@ -29,7 +29,6 @@ class Bishop extends Piece {
       const numberNegative = numberPosition - increment;
       if (numberPositive <= 8) {
         results.push(character + numberPositive);
-        console.log(character + numberPositive);
       }
       if (numberNegative >= 1) {
         results.push(character + numberNegative);
