@@ -61,4 +61,13 @@ class Board {
     this.cells[rookLocationOne].insertPiece(new Rook(colour, rookLocationOne))
     this.cells[rookLocationTwo].insertPiece(new Rook(colour, rookLocationTwo))
   }
+
+  setKnights() {
+    let rowNumber = 8
+    const colour = "black"
+    const knightLocationOne = "B" + rowNumber;
+    const knightLocationTwo = "G" + rowNumber;
+    this.cells[knightLocationOne].insertPiece(new Knight(colour, knightLocationOne));
+    this.cells[knightLocationTwo].insertPiece(new Knight(colour, knightLocationTwo));
+  }
 };
