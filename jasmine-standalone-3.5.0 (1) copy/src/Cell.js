@@ -1,6 +1,5 @@
 class Cell {
-  constructor(colour, startingPiece) {
-    this.colour = colour;
+  constructor(startingPiece) {
     this.occupied = false;
     this.contents = []
     this.insertPiece(startingPiece);
