@@ -4,7 +4,6 @@ class Rook extends Piece {
   }
   moves() {
     const numberPosition = parseInt(this.position[1]);
-    const charValue = this.position[0].charCodeAt(0);
     const results = [];
     for (let index = this.charCodeMin; index <= this.charCodeMax; index++) {
       const character = String.fromCharCode(index);
