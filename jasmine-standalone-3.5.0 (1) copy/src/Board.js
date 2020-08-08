@@ -116,9 +116,17 @@ class Board {
   };
 
   setBishops() {
+    this.setBishopsByColour("black");
+    this.setBishopsByColour("white");
+  }
+
+  setBishopsByColour(colour) {
     let rowNumber = 8;
-    const colour = "black";
+    if (colour == "white") {
+      rowNumber = 1;
+    }
     const bishopLocationOne = "C" + rowNumber;
+    console.log(bishopLocationOne);
     const bishopLocationTwo = "F" + rowNumber;
     this.cells[bishopLocationOne].insertPiece(new Bishop(colour, bishopLocationOne));
   }
