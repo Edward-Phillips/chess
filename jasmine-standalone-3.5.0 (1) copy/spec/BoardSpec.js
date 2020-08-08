@@ -175,4 +175,11 @@ describe('Board class', () => {
     chessboard.setQueens();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Queen);
   });
+  it('setting the bishops on the board puts a black bishop in C8', () => {
+    const chessboard = new Board;
+    const cellAddress = "C8"
+    chessboard.generateCells();
+    chessboard.setBishops();
+    expect(chessboard.cells.cellAddress)
+  })
 })
