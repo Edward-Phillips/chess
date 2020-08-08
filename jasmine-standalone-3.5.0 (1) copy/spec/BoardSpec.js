@@ -182,5 +182,13 @@ describe('Board class', () => {
     chessboard.generateCells();
     chessboard.setBishops();
     expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
-  })
+  });
+  it('setting the bishops on the board puts a white bishop in C1', () => {
+    const chessboard = new Board;
+    const cellAddress = "C1";
+    const colour = "white";
+    chessboard.generateCells();
+    chessboard.setBishops();
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
+  });
 })
