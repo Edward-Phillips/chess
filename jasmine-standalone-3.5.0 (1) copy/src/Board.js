@@ -77,4 +77,12 @@ class Board {
     this.cells[knightLocationOne].insertPiece(new Knight(colour, knightLocationOne));
     this.cells[knightLocationTwo].insertPiece(new Knight(colour, knightLocationTwo));
   }
+
+  setKings() {
+    let rowNumber = 1;
+    const colour = "white";
+    const whiteKingColumn = "D";
+    const whiteKingLocation = "D1"
+    this.cells[whiteKingLocation].insertPiece(new King(colour, whiteKingLocation));
+  }
 };
