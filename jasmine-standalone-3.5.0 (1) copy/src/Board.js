@@ -3,20 +3,18 @@ class Board {
   constructor() {
     this.cells = {}
     this.currentTurn = 0
+    this.charCodeMin = 65;
+    this.charCodeMax = 72;
   };
 
-  generateCells() {
-    let colour = false;
+  generateCells () {
     const charCode = "A".charCodeAt(0);
-    for (let index = 0; index < 64; index++) {
-      if (index % 2 == 0) {
-        colour = true;
-      }
-      const element = new Cell(colour);
+    for (let index = 0; index < 64; index ++) {
+      const element = new Cell();
       const currentLetter = String.fromCharCode(charCode + index % 8)
       const currentNumber = parseInt(9 - (index + 1) / 8);
       const cellAddress = currentLetter + currentNumber;
-      this.cells[cellAddress] = index;
+      this.cells[cellAddress] = element;
     }
   };
 
@@ -30,4 +28,22 @@ class Board {
   incTurn() {
     this.currentTurn += 1;
   };
+
+  setPawns() {
+    this.setPawnsByColour("black")
+    this.setPawnsByColour("white")
+  }
+
+  setPawnsByColour(colour) {
+    let rowNumber = 2
+    if (colour == "black") {
+      rowNumber = 7
+    }
+    for (let index = 0; index <= 7; index++) {
+      const character = this.charCodeMin + index
+      const cellAddress = String.fromCharCode(character) + rowNumber
+      console.log(cellAddress)
+      this.cells[cellAddress].insertPiece(new Pawn(colour, cellAddress))
+    }
+  }
 };
