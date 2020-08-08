@@ -65,8 +65,22 @@ describe('board class', () => {
   });
   it("setting the rooks on the board puts a black rook in A8 part 2", () => {
     const chessboard = new Board;
-    const colour = "black";
     const cellAddress = "A8"
+    chessboard.generateCells();
+    chessboard.setRooks();
+    expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Rook);
+  });
+  it("setting the rooks on the board puts a white rook in A1 part 1", () => {
+    const chessboard = new Board;
+    const colour = "white";
+    const cellAddress = "A1"
+    chessboard.generateCells();
+    chessboard.setRooks();
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
+  });
+  it("setting the rooks on the board puts a black rook in A1 part 2", () => {
+    const chessboard = new Board;
+    const cellAddress = "A1"
     chessboard.generateCells();
     chessboard.setRooks();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Rook);
