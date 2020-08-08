@@ -32,7 +32,7 @@ class Board {
   setPawns() {
     this.setPawnsByColour("black");
     this.setPawnsByColour("white");
-  }
+  };
 
   setPawnsByColour(colour) {
     let rowNumber = 2;
@@ -49,7 +49,7 @@ class Board {
   setRooks() {
     this.setRooksByColour("black");
     this.setRooksByColour("white");
-  }
+  };
 
   setRooksByColour(colour) {
     let rowNumber = 1;
@@ -60,12 +60,12 @@ class Board {
     const rookLocationTwo = "H" + rowNumber;
     this.cells[rookLocationOne].insertPiece(new Rook(colour, rookLocationOne))
     this.cells[rookLocationTwo].insertPiece(new Rook(colour, rookLocationTwo))
-  }
+  };
 
   setKnights() {
     this.setKnightsByColour("black")
     this.setKnightsByColour("white")
-  }
+  };
 
   setKnightsByColour(colour) {
     let rowNumber = 1;
@@ -76,12 +76,12 @@ class Board {
     const knightLocationTwo = "G" + rowNumber;
     this.cells[knightLocationOne].insertPiece(new Knight(colour, knightLocationOne));
     this.cells[knightLocationTwo].insertPiece(new Knight(colour, knightLocationTwo));
-  }
+  };
 
   setKings() {
     this.setKingsByColour("black");
     this.setKingsByColour("white");
-  }
+  };
 
   setKingsByColour(colour) {
     let rowNumber = 1;
@@ -90,11 +90,19 @@ class Board {
     }
     const kingLocation = "E" + rowNumber
     this.cells[kingLocation].insertPiece(new King(colour, kingLocation));
-  }
+  };
 
   setQueens() {
+    this.setQueensByColour("white");
+    this.setQueensByColour("black");
+  };
+
+  setQueensByColour(colour) {
     let rowNumber = 1;
+    if (colour == "black") {
+      rowNumber = 8
+    }
     const queenLocation = "D" + rowNumber;
-    this.cells[queenLocation].insertPiece(new Queen("white", queenLocation));
-  }
+    this.cells[queenLocation].insertPiece(new Queen(colour, queenLocation));
+  };
 };
