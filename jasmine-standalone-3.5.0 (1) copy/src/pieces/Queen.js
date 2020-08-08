@@ -43,7 +43,6 @@ class Queen extends Piece {
       const number = index;
       results.push(character + number);
     }
-    console.log(results.filter(x=> x !==this.position))
     return results.filter(x=> x !==this.position);
   }
 }
