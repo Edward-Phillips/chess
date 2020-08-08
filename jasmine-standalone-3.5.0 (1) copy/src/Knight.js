@@ -13,16 +13,20 @@ class Knight extends Piece {
       const characterToTheRight = String.fromCharCode(charValue + index);
       const characterToTheLeft = String.fromCharCode(charValue - index);
       if (offsetNumberDown >= 1) {
-        if(characterToTheLeft.charCodeAt(0) >= this.charCodeMin) {
+        if(charValue - index >= this.charCodeMin) {
           results.push(characterToTheLeft + offsetNumberDown)
         }
-        results.push(characterToTheRight + offsetNumberDown)
+        if(charValue + index <= this.charCodeMax) {
+          results.push(characterToTheRight + offsetNumberDown)
+        }
       }
       if (offsetNumberUp <= 8) {
         if(characterToTheLeft.charCodeAt(0) >= this.charCodeMin) {
           results.push(characterToTheLeft + offsetNumberUp)
         }
-        results.push(characterToTheRight + offsetNumberUp)
+        if(charValue + index <= this.charCodeMax) {
+          results.push(characterToTheRight + offsetNumberUp)
+        }
       }
     }
     return results
