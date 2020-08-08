@@ -118,7 +118,7 @@ class Board {
   setBishops() {
     this.setBishopsByColour("black");
     this.setBishopsByColour("white");
-  }
+  };
 
   setBishopsByColour(colour) {
     let rowNumber = 8;
@@ -129,5 +129,14 @@ class Board {
     console.log(bishopLocationOne);
     const bishopLocationTwo = "F" + rowNumber;
     this.cells[bishopLocationOne].insertPiece(new Bishop(colour, bishopLocationOne));
+  };
+
+  move(start,destination) {
+    if (Object.keys(this.cells).includes(start)) {
+      const movingPiece = this.cells[start].extractPiece()
+      if (movingPiece.moves().includes(destination)) {
+        this.cells[destination].insertPiece(movingPiece);
+      }
+    }
   }
 };
