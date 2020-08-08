@@ -84,5 +84,20 @@ describe('board class', () => {
     chessboard.generateCells();
     chessboard.setRooks();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Rook);
+  });
+  it("setting the knights on the board puts a black knight in B8 part 1", () => {
+    const chessboard = new Board;
+    const colour = "black";
+    const cellAddress = "B8"
+    chessboard.generateCells();
+    chessboard.setKnights();
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
+  });
+  it("setting the knights on the board puts a black knight in B8 part 2", () => {
+    const chessboard = new Board;
+    const cellAddress = "B8"
+    chessboard.generateCells();
+    chessboard.setKnights();
+    expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Knight);
   })
 })
