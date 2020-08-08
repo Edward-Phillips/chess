@@ -1,4 +1,4 @@
-describe("Rook Class", () => {
+describe("Rook class", () => {
   it('can determine where it can move to from H1', () => {
     const colour = "white";
     const startingPosition = "H1";

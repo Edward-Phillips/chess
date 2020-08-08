@@ -1,4 +1,4 @@
-describe("Bishop Class", () => {
+describe("Bishop class", () => {
   it('can determine where it can move to from C1', () => {
     const colour = "white";
     const startingPosition = "C1";

@@ -1,4 +1,4 @@
-describe("Knight Class", () => {
+describe("Knight class", () => {
   it("Can determine where it can move to from E4", () => {
     const colour = "white";
     const startingPosition = "E4";

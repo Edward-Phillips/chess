@@ -29,6 +29,15 @@ class Board {
     this.currentTurn += 1;
   };
 
+  setPieces() {
+    this.setPawns();
+    this.setRooks();
+    this.setKnights();
+    this.setBishops();
+    this.setQueens();
+    this.setKings();
+  }
+
   setPawns() {
     this.setPawnsByColour("black");
     this.setPawnsByColour("white");

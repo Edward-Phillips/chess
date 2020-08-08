@@ -1,4 +1,4 @@
-describe('Pawn Class', () => {
+describe('Pawn class', () => {
   it('can determine the positions it can move to', () => {
     const colour = "white";
     const startingPosition = "A2";

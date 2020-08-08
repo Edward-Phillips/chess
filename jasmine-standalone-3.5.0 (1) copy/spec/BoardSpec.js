@@ -1,4 +1,4 @@
-describe('board class', () => {
+describe('Board class', () => {
   it('can generate a new board', () => {
     const chessboard = new Board;
     expect(chessboard).toBeInstanceOf(Board);

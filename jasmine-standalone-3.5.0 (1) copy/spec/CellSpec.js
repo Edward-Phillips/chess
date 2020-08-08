@@ -1,4 +1,4 @@
-describe('cell class', () => {
+describe('Cell class', () => {
   it('can store a piece in the cell', () => {
     piece = {colour: "black"},
     square = new Cell(piece);
