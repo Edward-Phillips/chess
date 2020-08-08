@@ -121,12 +121,11 @@ describe('board class', () => {
     const colour = "white";
     chessboard.generateCells();
     chessboard.setKings();
-    expect(chessboard.cells[cellAddress].colour).toEqual(colour);
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
   });
-  it('setting the kings on the board puts a white king in D1 part 1', () => {
+  it('setting the kings on the board puts a white king in D1 part 2', () => {
     const chessboard = new Board;
     const cellAddress = "D1"
-    const colour = "white";
     chessboard.generateCells();
     chessboard.setKings();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(King);
