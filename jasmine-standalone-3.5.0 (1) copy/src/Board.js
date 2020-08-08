@@ -79,10 +79,22 @@ class Board {
   }
 
   setKings() {
+    this.setKingsByColour("black");
+    this.setKingsByColour("white");
+  }
+
+  setKingsByColour(colour) {
     let rowNumber = 1;
-    const colour = "white";
-    const whiteKingColumn = "D";
-    const whiteKingLocation = "D1"
-    this.cells[whiteKingLocation].insertPiece(new King(colour, whiteKingLocation));
+    if (colour == "black") {
+      rowNumber = 8
+    }
+    const kingLocation = "E" + rowNumber
+    this.cells[kingLocation].insertPiece(new King(colour, kingLocation));
+  }
+
+  setQueens() {
+    let rowNumber = 1;
+    const queenLocation = "D" + rowNumber;
+    this.cells[queenLocation].insertPiece(new Queen("white", queenLocation));
   }
 };
