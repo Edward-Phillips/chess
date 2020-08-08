@@ -22,5 +22,11 @@ describe("Knight Class", () => {
     const startingPosition = "A4";
     const piece = new Knight(colour, startingPosition);
     expect(piece.moves().sort()).toEqual(["B2","C3","C5","B6"].sort())
+  });
+  it("doesn't allow moves to the right of column H", () => {
+    const colour = "white";
+    const startingPosition = "H4";
+    const piece = new Knight(colour, startingPosition);
+    expect(piece.moves().sort()).toEqual(["G2","F3","F5","G6"].sort())
   })
 })
