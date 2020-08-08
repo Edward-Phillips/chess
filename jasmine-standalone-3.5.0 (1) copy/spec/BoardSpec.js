@@ -42,4 +42,18 @@ describe('board class', () => {
     chessboard.setPawns();
     expect(chessboard.cells["A7"].extractPiece()).toBeInstanceOf(Pawn);
   });
+  it(" setting the pawns on the board puts a white pawn in A2 part 1", () => {
+    const chessboard = new Board;
+    const colour = "white"
+    chessboard.generateCells();
+    chessboard.setPawns();
+    expect(chessboard.cells["A2"].extractPiece().colour).toEqual("white")
+  });
+  it(" setting the pawns on the board puts a white pawn in A2 part 2", () => {
+    const chessboard = new Board;
+    const colour = "black"
+    chessboard.generateCells();
+    chessboard.setPawns();
+    expect(chessboard.cells["A2"].extractPiece()).toBeInstanceOf(Pawn);
+  });
 })
