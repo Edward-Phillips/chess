@@ -36,7 +36,7 @@ class Board {
     this.setBishops();
     this.setQueens();
     this.setKings();
-  }
+  };
 
   setPawns() {
     this.setPawnsByColour("black");
@@ -114,4 +114,12 @@ class Board {
     const queenLocation = "D" + rowNumber;
     this.cells[queenLocation].insertPiece(new Queen(colour, queenLocation));
   };
+
+  setBishops() {
+    let rowNumber = 8;
+    const colour = "black";
+    const bishopLocationOne = "C" + rowNumber;
+    const bishopLocationTwo = "F" + rowNumber;
+    this.cells[bishopLocationOne].insertPiece(new Bishop(colour, bishopLocationOne));
+  }
 };
