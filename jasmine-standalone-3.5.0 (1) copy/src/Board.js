@@ -63,8 +63,15 @@ class Board {
   }
 
   setKnights() {
-    let rowNumber = 8
-    const colour = "black"
+    this.setKnightsByColour("black")
+    this.setKnightsByColour("white")
+  }
+
+  setKnightsByColour(colour) {
+    let rowNumber = 1;
+    if(colour == "black") {
+      rowNumber = 8
+    }
     const knightLocationOne = "B" + rowNumber;
     const knightLocationTwo = "G" + rowNumber;
     this.cells[knightLocationOne].insertPiece(new Knight(colour, knightLocationOne));
