@@ -115,19 +115,49 @@ describe('board class', () => {
     chessboard.setKnights();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Knight);
   });
-  it('setting the kings on the board puts a white king in D1 part 1', () => {
+  it('setting the kings on the board puts a white king in E1 part 1', () => {
     const chessboard = new Board;
-    const cellAddress = "D1"
+    const cellAddress = "E1"
     const colour = "white";
+    chessboard.generateCells();
+    chessboard.setKings();
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
+  });
+  it('setting the kings on the board puts a white king in E1 part 2', () => {
+    const chessboard = new Board;
+    const cellAddress = "E1"
+    chessboard.generateCells();
+    chessboard.setKings();
+    expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(King);
+  });
+  it('setting the kings on the board puts a black king in E8 part 1', () => {
+    const chessboard = new Board;
+    const cellAddress = "E8"
+    const colour = "black";
     chessboard.generateCells();
     chessboard.setKings();
     expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
   });
   it('setting the kings on the board puts a white king in D1 part 2', () => {
     const chessboard = new Board;
-    const cellAddress = "D1"
+    const cellAddress = "E1"
     chessboard.generateCells();
     chessboard.setKings();
     expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(King);
+  });
+  it('setting the queens on the board puts a white queen in D1 part 1', () => {
+    const chessboard = new Board;
+    const cellAddress = "D1"
+    const colour = "white";
+    chessboard.generateCells();
+    chessboard.setQueens();
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
+  });
+  it('setting the queens on the board puts a white queen in D1 part 2', () => {
+    const chessboard = new Board;
+    const cellAddress = "D1"
+    chessboard.generateCells();
+    chessboard.setQueens();
+    expect(chessboard.cells[cellAddress].extractPiece()).toBeInstanceOf(Queen);
   });
 })
