@@ -191,4 +191,11 @@ describe('Board class', () => {
     chessboard.setBishops();
     expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
   });
+  it('can move a pawn one space forwards', () => {
+    const chessboard = new Board;
+    chessboard.generateCells();
+    chessboard.setPieces();
+    chessboard.move("A2","A3");
+    expect(chessboard.cells["A3"].extractPiece()).toBeInstanceOf(Pawn);
+  })
 })
