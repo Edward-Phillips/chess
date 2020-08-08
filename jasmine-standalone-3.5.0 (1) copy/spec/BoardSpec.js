@@ -177,9 +177,10 @@ describe('Board class', () => {
   });
   it('setting the bishops on the board puts a black bishop in C8', () => {
     const chessboard = new Board;
-    const cellAddress = "C8"
+    const cellAddress = "C8";
+    const colour = "black";
     chessboard.generateCells();
     chessboard.setBishops();
-    expect(chessboard.cells.cellAddress)
+    expect(chessboard.cells[cellAddress].extractPiece().colour).toEqual(colour);
   })
 })
