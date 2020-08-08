@@ -30,20 +30,35 @@ class Board {
   };
 
   setPawns() {
-    this.setPawnsByColour("black")
-    this.setPawnsByColour("white")
+    this.setPawnsByColour("black");
+    this.setPawnsByColour("white");
   }
 
   setPawnsByColour(colour) {
-    let rowNumber = 2
+    let rowNumber = 2;
     if (colour == "black") {
-      rowNumber = 7
+      rowNumber = 7;
     }
     for (let index = 0; index <= 7; index++) {
       const character = this.charCodeMin + index
       const cellAddress = String.fromCharCode(character) + rowNumber
-      console.log(cellAddress)
       this.cells[cellAddress].insertPiece(new Pawn(colour, cellAddress))
     }
+  };
+
+  setRooks() {
+    this.setRooksByColour("black");
+    this.setRooksByColour("white");
+  }
+
+  setRooksByColour(colour) {
+    let rowNumber = 1;
+    if (colour == "black") {
+      rowNumber = 8;
+    }
+    const rookLocationOne = "A" + rowNumber;
+    const rookLocationTwo = "H" + rowNumber;
+    this.cells[rookLocationOne].insertPiece(new Rook(colour, rookLocationOne))
+    this.cells[rookLocationTwo].insertPiece(new Rook(colour, rookLocationTwo))
   }
 };
