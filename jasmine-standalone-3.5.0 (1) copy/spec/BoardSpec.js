@@ -205,10 +205,14 @@ describe('Board class', () => {
     chessboard.move("A2","A4");
     expect(chessboard.cells["A4"].extractPiece()).toBeInstanceOf(Pawn);
   });
-  it("doesn't allow a piece to move through another piece", () => {
+  xit("doesn't allow a piece to move through another piece", () => {
     const chessboard = new Board;
     chessboard.generateCells();
     chessboard.setPieces();
     expect(() => {chessboard.move("A1","A3")}).toThrow(new Error('this move is blocked by a piece in A2'));
+  })
+  it(' can produce a list of cells between A1 and A8', () => {
+    const chessboard = new Board;
+    expect(chessboard.cellsBetween("A1","A8")).toEqual(["A2","A3","A4","A5","A6","A7"])
   })
 })
