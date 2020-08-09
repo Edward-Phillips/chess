@@ -197,5 +197,18 @@ describe('Board class', () => {
     chessboard.setPieces();
     chessboard.move("A2","A3");
     expect(chessboard.cells["A3"].extractPiece()).toBeInstanceOf(Pawn);
+  });
+  it('can move a pawn two spaces forwards from the 2nd row', () => {
+    const chessboard = new Board;
+    chessboard.generateCells();
+    chessboard.setPieces();
+    chessboard.move("A2","A4");
+    expect(chessboard.cells["A4"].extractPiece()).toBeInstanceOf(Pawn);
+  });
+  it("doesn't allow a piece to move through another piece", () => {
+    const chessboard = new Board;
+    chessboard.generateCells();
+    chessboard.setPieces();
+    expect(() => {chessboard.move("A1","A3")}).toThrow(new Error('this move is blocked by a piece in A2'));
   })
 })
