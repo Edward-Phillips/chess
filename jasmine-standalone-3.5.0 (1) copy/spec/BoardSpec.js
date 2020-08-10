@@ -210,9 +210,9 @@ describe('Board class', () => {
     chessboard.generateCells();
     chessboard.setPieces();
     expect(() => {chessboard.move("A1","A3")}).toThrow(new Error('this move is blocked by a piece in A2'));
-  })
+  });
   it(' can produce a list of cells between A1 and A8', () => {
     const chessboard = new Board;
-    expect(chessboard.cellsBetween("A1","A8")).toEqual(["A2","A3","A4","A5","A6","A7"])
-  })
+    expect(chessboard.cellsBetween("A1","A8").sort()).toEqual(["A2","A3","A4","A5","A6","A7"].sort())
+  });
 })
