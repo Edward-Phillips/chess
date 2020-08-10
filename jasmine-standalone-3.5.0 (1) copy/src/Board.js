@@ -1,10 +1,12 @@
 class Board {
 
-  constructor() {
+  constructor(converter = notationConverter, inverter = inverseNotationConverter) {
     this.cells = {}
     this.currentTurn = 0
     this.charCodeMin = 65;
     this.charCodeMax = 72;
+    this.converter = converter;
+    this.inverter = inverter;
   };
 
   generateCells () {
@@ -126,16 +128,65 @@ class Board {
       rowNumber = 1;
     }
     const bishopLocationOne = "C" + rowNumber;
-    console.log(bishopLocationOne);
     const bishopLocationTwo = "F" + rowNumber;
     this.cells[bishopLocationOne].insertPiece(new Bishop(colour, bishopLocationOne));
+    this.cells[bishopLocationTwo].insertPiece(new Bishop(colour, bishopLocationTwo));
   };
 
-  move(start,destination) {
-    if (Object.keys(this.cells).includes(start)) {
-      const movingPiece = this.cells[start].extractPiece()
-      if (movingPiece.moves().includes(destination)) {
-        this.cells[destination].insertPiece(movingPiece);
+  move(here,there) {
+    if (Object.keys(this.cells).includes(here) && Object.keys(this.cells).includes(there)) {
+      const movingPiece = this.cells[here].extractPiece()
+      if (movingPiece.moves().includes(there)) {
+        // if(emptyCells(cellsBetween(here,there)))
+        this.cells[there].insertPiece(movingPiece);
+      }
+    }
+  }
+
+  cellsBetween(here, there) {
+    const hereCoords = this.converter(here);
+    const thereCoords = this.converter(there);
+    const xArray = [hereCoords[0],thereCoords[0]];
+    const yArray = [hereCoords[1],thereCoords[1]];
+    const xDiff = xArray[0] - xArray[1];
+    const yDiff = yArray[0] - yArray[1];
+    const yMin = Math.min(...yArray);
+    const xMin = Math.min(...xArray);
+    const yMax = Math.max(...yArray);
+    const xMax = Math.max(...xArray);
+    const results = []
+    console.log(xDiff);
+    console.log(yDiff);
+    if (xDiff != 0) {
+      if(yDiff != 0) {
+        for (let index = yMin + 1; index < yMax; index++) {
+          const xCoord = xMin + index;
+          const yCoord = yMin + index;
+          const formattedCoord = this.converter([xCoord,yCoord]);
+          results.push(formattedCoord)
+        }
+        return results;
+      } else {
+        for (let index = xMin + 1; index < xMax; index++) {
+          const xCoord = xMin + index;
+          const yCoord = yMin
+          const formattedCoord = this.converter([xCoord,yCoord]);
+          results.push(formattedCoord)
+        }
+        return results;
+      }
+    } else {
+      if(yDiff != 0) {
+        for (let index = yMin + 1; index < yMax; index++) {
+          const yCoord = yMin + index;
+          const xCoord = xMin;
+          console.log(yCoord)
+          console.log(xCoord)
+          const formattedCoord = this.inverter([xCoord,yCoord]);
+          console.log(formattedCoord)
+          results.push(formattedCoord)
+        }
+        return results;
       }
     }
   }
