@@ -219,4 +219,8 @@ describe('Board class', () => {
     const chessboard = new Board;
     expect(chessboard.cellsBetween("E4","H1").sort()).toEqual(["F3","G2"].sort())
   });
+  it(' can produce a list of cells between H1 and E4', () => {
+    const chessboard = new Board;
+    expect(chessboard.cellsBetween("H1","E4").sort()).toEqual(["F3","G2"].sort())
+  });
 })
