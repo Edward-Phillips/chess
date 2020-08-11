@@ -159,34 +159,42 @@ class Board {
     console.log(yDiff);
     if (xDiff != 0) {
       if(yDiff != 0) {
-        for (let index = yMin + 1; index < yMax; index++) {
-          const xCoord = xMin + index;
-          const yCoord = yMin + index;
-          const formattedCoord = this.converter([xCoord,yCoord]);
-          results.push(formattedCoord)
+        console.log(yDiff);
+        if(yDiff > 0) {
+          for (let index = yMin + 1; index < yMax; index++) {
+            const xCoord = xMin + index;
+            const yCoord = yMax - index;
+            const formattedCoord = this.inverter([xCoord,yCoord]);
+            results.push(formattedCoord)
+          }
+          return results;
+        } else {
+          for (let index = yMin + 1; index < yMax; index++) {
+            const xCoord = xMin + index;
+            const yCoord = yMin + index;
+            const formattedCoord = this.inverter([xCoord,yCoord]);
+            results.push(formattedCoord)
+          }
+          return results;
         }
-        return results;
       } else {
         for (let index = xMin + 1; index < xMax; index++) {
           const xCoord = xMin + index;
           const yCoord = yMin
-          const formattedCoord = this.converter([xCoord,yCoord]);
+          const formattedCoord = this.inverter([xCoord,yCoord]);
           results.push(formattedCoord)
         }
         return results;
       }
     } else {
       if(yDiff != 0) {
-        for (let index = yMin + 1; index < yMax; index++) {
-          const yCoord = yMin + index;
-          const xCoord = xMin;
-          console.log(yCoord)
-          console.log(xCoord)
-          const formattedCoord = this.inverter([xCoord,yCoord]);
-          console.log(formattedCoord)
-          results.push(formattedCoord)
-        }
-        return results;
+          for (let index = yMin + 1; index < yMax; index++) {
+            const yCoord = yMin + index;
+            const xCoord = xMin;
+            const formattedCoord = this.inverter([xCoord,yCoord]);
+            results.push(formattedCoord)
+          }
+          return results;
       }
     }
   }
