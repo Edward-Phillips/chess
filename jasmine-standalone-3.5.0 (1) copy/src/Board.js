@@ -155,11 +155,8 @@ class Board {
     const yMax = Math.max(...yArray);
     const xMax = Math.max(...xArray);
     const results = []
-    console.log(xDiff);
-    console.log(yDiff);
     if (xDiff != 0) {
       if(yDiff != 0) {
-        console.log(yDiff);
         if(yDiff > 0) {
           for (let index = yMin + 1; index < yMax; index++) {
             const xCoord = xMin + index;
@@ -169,13 +166,23 @@ class Board {
           }
           return results;
         } else {
-          for (let index = yMin + 1; index < yMax; index++) {
-            const xCoord = xMin + index;
-            const yCoord = yMin + index;
-            const formattedCoord = this.inverter([xCoord,yCoord]);
-            results.push(formattedCoord)
+          if(xDiff > 0) {
+            for (let index = yMin + 1; index < yMax; index++) {
+              const xCoord = xMax - index;
+              const yCoord = yMin + index;
+              const formattedCoord = this.inverter([xCoord,yCoord]);
+              results.push(formattedCoord)
+            }
+            return results;
+          } else {
+            for (let index = 1; index < yMax - yMin; index++) {
+              const xCoord = xMin + index;
+              const yCoord = yMin + index;
+              const formattedCoord = this.inverter([xCoord,yCoord]);
+              results.push(formattedCoord)
+            }
+            return results;
           }
-          return results;
         }
       } else {
         for (let index = xMin + 1; index < xMax; index++) {
