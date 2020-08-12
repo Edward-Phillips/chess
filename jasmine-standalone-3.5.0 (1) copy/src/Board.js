@@ -158,16 +158,16 @@ class Board {
     if (xDiff != 0) {
       if(yDiff != 0) {
         if(yDiff > 0) {
-          for (let index = yMin + 1; index < yMax; index++) {
-            const xCoord = xMin + index;
-            const yCoord = yMax - index;
+          for (let index = 1; index < yMax - yMin; index++) {
+            const xCoord = xMax - index;
+            const yCoord = yMin + index;
             const formattedCoord = this.inverter([xCoord,yCoord]);
             results.push(formattedCoord)
           }
           return results;
         } else {
           if(xDiff > 0) {
-            for (let index = yMin + 1; index < yMax; index++) {
+            for (let index = 1; index < yMax - yMin; index++) {
               const xCoord = xMax - index;
               const yCoord = yMin + index;
               const formattedCoord = this.inverter([xCoord,yCoord]);
@@ -185,7 +185,7 @@ class Board {
           }
         }
       } else {
-        for (let index = xMin + 1; index < xMax; index++) {
+        for (let index = 1; index < xMax - xMin; index++) {
           const xCoord = xMin + index;
           const yCoord = yMin
           const formattedCoord = this.inverter([xCoord,yCoord]);
@@ -195,7 +195,7 @@ class Board {
       }
     } else {
       if(yDiff != 0) {
-          for (let index = yMin + 1; index < yMax; index++) {
+          for (let index = 1; index < yMax - yMin; index++) {
             const yCoord = yMin + index;
             const xCoord = xMin;
             const formattedCoord = this.inverter([xCoord,yCoord]);
