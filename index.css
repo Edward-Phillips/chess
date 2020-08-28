@@ -19,6 +19,9 @@
   height: 50vw;
   min-width: 400px;
   min-height: 400px;
+  max-width: 800px;
+  max-height: 800px;
+  margin: auto;
 }
 
 
