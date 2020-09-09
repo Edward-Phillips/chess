@@ -20,4 +20,3 @@ A Test-Driven development of the game of chess, primary focus is on the completi
  ## Documentation
  The main focus of this repo is to test drive a complex system.
 
- ## Diagrams
